@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
 
 /**
  * Created by czh on 18-12-6.
- * Email: baicai94@foxmail.com
+ * Email: caichelin@gmail.com
  */
 public abstract class ItemViewBinder<T, VH extends RecyclerView.ViewHolder> {
 

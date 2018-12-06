@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * Created by czh on 18-12-6.
- * Email: baicai94@foxmail.com
+ * Email: caichelin@gmail.com
  */
 public class MultiTypeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
