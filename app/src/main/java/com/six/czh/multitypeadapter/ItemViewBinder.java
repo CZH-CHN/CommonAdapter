@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Created by oneplus on 18-12-6.
- * Email: six.cai@oneplus.com
+ * Created by czh on 18-12-6.
+ * Email: baicai94@foxmail.com
  */
 public abstract class ItemViewBinder<T, VH extends RecyclerView.ViewHolder> {
 

@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import java.util.List;
 
 /**
- * Created by oneplus on 18-12-6.
- * Email: six.cai@oneplus.com
+ * Created by czh on 18-12-6.
+ * Email: baicai94@foxmail.com
  */
 public class MultiTypeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
