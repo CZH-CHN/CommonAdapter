@@ -21,7 +21,18 @@ public abstract class ItemViewBinder<T, VH extends RecyclerView.ViewHolder> {
      */
     protected abstract @NotNull VH onCreateViewHolder(@NotNull LayoutInflater inflater, @NonNull ViewGroup parent);
 
-
+    /**
+     *
+     * @param holder The ViewHolder
+     * @param item The item within the Adapter's items data set.
+     */
     protected abstract @NotNull void onBindViewHolder(@NonNull VH holder, @NotNull T item);
+
+
+    /**
+     * Get the current ViewHolder layout id.
+     * @return The layout id
+     */
+    protected abstract int getLayoutId();
 
 }

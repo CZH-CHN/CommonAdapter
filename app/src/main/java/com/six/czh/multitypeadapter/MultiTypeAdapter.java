@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -16,6 +17,32 @@ public class MultiTypeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     private List<?> items;
 
     private TypePool typePool;
+
+    public MultiTypeAdapter() {
+        this(Collections.emptyList());
+    }
+
+    public MultiTypeAdapter(@NonNull List<?> items) {
+        this(items, new MultiTypePool());
+    }
+
+    public MultiTypeAdapter(@NonNull List<?> items, int initialCapacity) {
+        this(items, new MultiTypePool(initialCapacity));
+    }
+
+    public MultiTypeAdapter(@NonNull List<?> items, @NonNull TypePool pool) {
+        this.items = items;
+        this.typePool = pool;
+    }
+
+    public void setItems(@NonNull List<?> items) {
+        this.items = items;
+    }
+
+    public @NonNull
+    List<?> getItems() {
+        return items;
+    }
 
     @NonNull
     @Override
@@ -42,7 +69,7 @@ public class MultiTypeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     @Override
     public int getItemViewType(int position) {
         //TODO 合法性判断(IndexOutOfBound)
-        return typePool.indexOf(items.get(position).getClass());
+        return typePool.indexOfTypeOf(items.get(position));
     }
 
     /**
@@ -53,5 +80,15 @@ public class MultiTypeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
      */
     public <T> void register(Class<? extends T> clazz, ItemViewBinder<T, ?> binder) {
         typePool.resiger(clazz, binder);
+    }
+
+    /**
+     *
+     * @param clazz
+     * @param group
+     * @param <T>
+     */
+    public <T> void register(Class<? extends T> clazz, OneToManyItemViewGroup<T> group) {
+        typePool.resiger(clazz, group);
     }
 }
