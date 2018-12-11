@@ -10,7 +10,7 @@ public interface TypePool {
                      ItemViewBinder<T, ?> binder);
 
     <T> void resiger(Class<? extends T> clazz,
-                     OneToManyItemViewGroup<T> group);
+                     ItemViewBinderGroup<T> group);
 
     <T> boolean unregister(Class<? extends T> clazz);
 

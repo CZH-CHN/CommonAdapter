@@ -15,7 +15,7 @@ public class MultiTypePool implements TypePool {
 
     private List<ItemViewBinder<?, ?>> binders;
 
-    private Map<String, OneToManyItemViewGroup> itemViewGroupMap;
+    private Map<String, ItemViewBinderGroup> itemViewGroupMap;
 
     /**
      * Constructs a MultiTypePool with default lists.
@@ -55,7 +55,7 @@ public class MultiTypePool implements TypePool {
      * @param <T>
      */
     @Override
-    public <T> void resiger(Class<? extends T> clazz, OneToManyItemViewGroup<T> group) {
+    public <T> void resiger(Class<? extends T> clazz, ItemViewBinderGroup<T> group) {
 
         for (ItemViewBinder binder: group.getItemViewBinders()) {
             resiger(getClassNameFromGroup(clazz, group, binder), binder);
@@ -111,7 +111,7 @@ public class MultiTypePool implements TypePool {
         return clazz.getName();
     }
 
-    private String getClassNameFromGroup(Class<?> cls, OneToManyItemViewGroup group, ItemViewBinder binder) {
+    private String getClassNameFromGroup(Class<?> cls, ItemViewBinderGroup group, ItemViewBinder binder) {
         return getClassName(cls) + group.getItemViewBinderTag(binder);
     }
 }
